@@ -16,7 +16,7 @@ def distance_shading(tile_size: int) -> NDArray[np.float32]:
     center = np.array([tile_size // 2, tile_size // 2])
     # [W][H][2]
     delta = coord - center
-    print('delta.shape', delta.shape)
+    # print('delta.shape', delta.shape)
     # v = (x, y)
     # length(v) = sqrt(x^2 + y^2)
     # _delta = (x, y)
@@ -28,6 +28,7 @@ def distance_shading(tile_size: int) -> NDArray[np.float32]:
     image = np.zeros((tile_size, tile_size, 3), dtype=np.float32)   # 0...1
 
     image[:, :, 0] = distance_to_center / np.sqrt(tile_size * tile_size * 2)
+    # image[distance_to_center]
 
     return image
 
